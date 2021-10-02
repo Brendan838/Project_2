@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS stoyo_db;
+CREATE DATABASE stoyo_db;
