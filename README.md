@@ -1,6 +1,6 @@
-# groupProject_teamSoFetch
+# groupProject_team Five Guys Coding Fries
 
-> Deployed site [_here_](https://brendan838.github.io/groupProject_teamSoFetch/). <!-- If you have the project hosted somewhere, include the link here. -->
+> Deployed site [_here_](). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 
@@ -13,7 +13,9 @@
 
 ## Description
 
-Hello! The goal of this project is 
+Hello, welcome to the StoYo Code repo. The purpose of this application is to enhance the efficiency of developers by giving them an application to store code snippets. Visit our deployed site, sign up, and try it out!
+
+This application uses node.js, as well as npm libraries including express, mysql2, sequelize, bcrypt, and express-handlebars. 
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
