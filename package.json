@@ -4,7 +4,7 @@
   "description": "> Deployed site [_here_](https://brendan838.github.io/groupProject_teamSoFetch/). <!-- If you have the project hosted somewhere, include the link here. -->",
   "main": "server.js",
   "dependencies": {
-    "bcrypt": "^5.0.1",
+    "bcrypt": "^5.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.4",
