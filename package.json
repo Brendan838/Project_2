@@ -1,0 +1,35 @@
+{
+  "name": "project_2",
+  "version": "1.0.0",
+  "description": "> Deployed site [_here_](https://brendan838.github.io/groupProject_teamSoFetch/). <!-- If you have the project hosted somewhere, include the link here. -->",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "multer": "^1.4.3",
+    "mysql2": "^2.3.0",
+    "path": "^0.12.7",
+    "sequelize": "^6.6.5",
+    "session": "^0.1.0",
+    "stack": "^0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brendan838/Project_2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brendan838/Project_2/issues"
+  },
+  "homepage": "https://github.com/Brendan838/Project_2#readme"
+}
