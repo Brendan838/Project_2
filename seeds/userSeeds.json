@@ -1,30 +1,5 @@
 [
     {
-<<<<<<< HEAD
-        "username": "Sal",
-        "email": "sal@hotmail.com",
-        "password": "password12345"
-    },
-    {
-        "username": "Lernantino",
-        "email": "lernantino@gmail.com",
-        "password": "password12345"
-    },
-    {
-        "username": "Amiko",
-        "email": "amiko2k20@aol.com",
-        "password": "password12345"
-    },
-    {
-        "username": "Jordan",
-        "email": "jordan99@msn.com",
-        "password": "password12345"
-    },
-    {
-        "username": "Blake",
-        "email": "the_blake@yahoo.com",
-        "password": "password12345"
-=======
         "username": "Test1",
         "email": "test1@test.co",
         "password": "pass123"
@@ -38,6 +13,5 @@
         "username": "Test3",
         "email": "test3@test.co",
         "password": "pass123"
->>>>>>> 98d7211392447c8cfc672f6cd4070a4f1de77c25
     }
 ]
