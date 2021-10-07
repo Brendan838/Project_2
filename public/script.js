@@ -1,5 +1,5 @@
-var cityList = [];
-var cityname;
+var codeList = [];
+
 
 function renderCode(){
     $("#codeList").empty();
