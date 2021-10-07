@@ -1,0 +1,86 @@
+.newCode {
+    float: right;
+    width: 50%;
+    height: 100%;
+    background-color: black;
+    margin-top: 10px;
+    color: limegreen;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 30px;
+    resize: none;
+
+
+  }
+.title{
+    font-size:100px;
+    font-weight: bold;
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+  }
+  
+li {
+    float: left;
+  }
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+li a:hover {
+    background-color: rgb(0, 32, 0);
+  }
+
+body {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+h1 {
+    text-align: right;
+}
+
+.saveButton {
+    float: right;
+    margin-left: 1000px;
+    border: none;
+    cursor: pointer;
+    width: 70px;
+    height: 50px;
+    opacity: 0.9;
+    background-color: #000000;
+    color: white;
+    display: block;
+    font-size: large;
+    font-family: "Lucida Console", "Courier New", monospace;
+    
+}
+
+.saveButton:hover {
+    background-color: rgb(0, 32, 0);
+}
+
+.form-control {
+    color: limegreen;
+    font-family: "Lucida Console", "Courier New", monospace;
+    background-color: black;
+    height: 200px;
+    width: 200px;
+    font-size: 30px;
+    
+}
+h4 {
+    font-size: 30px;
+}
+
+
+
+
