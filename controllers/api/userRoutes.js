@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 router.post('/signup', async (req, res) => {
-  console.log('You hit signup route' + req.body);
+  console.log('You hit signup route', req.body);
     try {
       const dbUserData = await User.create({
         username: req.body.username,
@@ -11,7 +11,8 @@ router.post('/signup', async (req, res) => {
       });
 
       req.session.save(() => {
-          res.status(200).json(dbUserData);
+        req.session.logged_in = true
+        res.status(200).json(dbUserData);
       });
     } catch (err) {
         console.log(err);
@@ -45,12 +46,13 @@ router.post('/login', async (req, res) => {
         }
         req.session.save(() => {
             req.session.user_id = dbUserData.id;
-            req.session.loggedIn = true;
-            console.log("user logged in", dbUserData)
+            req.session.logged_in = true;
+            console.log("user logged in", dbUserData, req.session.logged_in)
             res
               .status(200)
-              .json({ user: dbUserData, message: 'You are now logged in!' });
+              .json({ user: dbUserData, message: 'You are now logged in!' })
           });
+          console.log(req.session.logged_in)
         } catch (err) {
           console.log(err);
           res.status(400).json(err);
@@ -58,7 +60,7 @@ router.post('/login', async (req, res) => {
       });
       
       router.post('/logout', (req, res) => {
-        if (req.session.loggedIn) {
+        if (req.session.logged_in) {
           req.session.destroy(() => {
             res.status(204).end();
           });

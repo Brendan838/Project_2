@@ -1,39 +1,23 @@
 const router = require('express').Router();
-const { User, Post } = require('../models');
+const { Post } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-router.get('/', withAuth, async (req, res) => {
-  try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
-    });
+// router.get('/', withAuth, async (req, res) => {
+//   try {
+//     res.render('homepage', {
+//       logged_in: req.session.loggedIn,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-    const users = userData.map((project) => project.get({ plain: true }));
-
-    res.render('homepage', {
-      users,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/login', (req, res) => {
-  if (req.session.logged_in) {
-    //res.redirect('/');
-    return;
-  }
-
-  res.render('login');
-});
 
 //render all posts
-router.get('/homepage', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
-    const dbPost = await Post.finsAll({
+    const dbPost = await Post.findAll({
       include: [
         {
           model: Post,
@@ -48,7 +32,7 @@ router.get('/homepage', async (req, res) => {
 
     res.render('homepage', {
       post,
-      loggedIn: req.session.loggedIn,
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -86,6 +70,14 @@ router.delete('/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+router.get('/login', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
 });
 
 module.exports = router;
