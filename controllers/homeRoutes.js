@@ -17,14 +17,7 @@ const withAuth = require('../utils/auth');
 //render all posts
 router.get('/', withAuth, async (req, res) => {
   try {
-    const dbPost = await Post.findAll({
-      include: [
-        {
-          model: Post,
-          attributes: ['title', 'saved_code'],
-        },
-      ],
-    });
+    const dbPost = await Post.findAll();
 
     const post = dbPost.map((post) =>
       post.get({ plain: true })
