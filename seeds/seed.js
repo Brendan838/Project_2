@@ -1,5 +1,4 @@
 const seedPosts = require('./post-seeds');
-
 const seedUsers = require('./userSeeds');
 const { User } = require("../models");
 
@@ -19,5 +18,6 @@ const seedAll = async () => {
   console.log('\n----- POSTS SEEDED -----\n');
 
   process.exit(0);
+}
 
 seedAll();
