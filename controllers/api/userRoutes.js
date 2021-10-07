@@ -20,6 +20,7 @@ router.post('/signup', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+  console.log('You hit login route', req.body);
     try {
         const dbUserData = await User.findOne({
           where: {
@@ -43,15 +44,16 @@ router.post('/login', async (req, res) => {
           return;
         }
         req.session.save(() => {
+            req.session.user_id = dbUserData.id;
             req.session.loggedIn = true;
-      
+            console.log("user logged in", dbUserData)
             res
               .status(200)
               .json({ user: dbUserData, message: 'You are now logged in!' });
           });
         } catch (err) {
           console.log(err);
-          res.status(500).json(err);
+          res.status(400).json(err);
         }
       });
       
