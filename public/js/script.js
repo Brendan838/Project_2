@@ -1,26 +1,27 @@
-//divide the text area in two. 
-
-//when a text is input, a new Element is created. 
-//
-
+console.log("hello")
 
 var saveButton = document.querySelector("#saveBtn")
 var titleField = document.querySelector("#snippetTitle")
 var snippetField = document.querySelector("#snippetBody")
+var deleteButton = document.querySelector("#deleteBtn")
+var updateButton = document.querySelector("#updateBtn")
 
 saveButton.addEventListener("click", ()=> {
 
 var newSnippet = {
 title: titleField.value,
-snippet: snippetField.value
+saved_code: snippetField.value
  }
 
 console.log(newSnippet)
 saveSnippet(newSnippet)
+});
+
+
+
+deleteButton.addEventListener("click", ()=> {
+console.log("hello testing")
 })
-
-
-
 
 var folders = document.getElementsByClassName("folders");
 
@@ -59,7 +60,17 @@ async function getSavedSnippet() {
   }).then((snippet)=> {
   snippet.title = titleField.textContent
   snippet.saved_Code = snippetField.textContent
+  
   })
 
- 
+}
+
+ async function deleteSnippet() {
+
+  await fetch('/test/test', {
+    method: 'DELETE'
+  
+  
+    
+  });
 }

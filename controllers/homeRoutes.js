@@ -73,6 +73,8 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+
+
 // Brendan is just testing/messing with test routes below this
 
 const postData = [
@@ -116,8 +118,20 @@ router.get('/test/:id', (req, res) => {
 
 router.post('/test', (req, res) => {
   console.log(req.body)
+
+Post.create(req.body)
   res.json(req.body);
 });
 
+router.delete('/test/test', (req, res) => {
+  console.log("you smacked the delete route!")
+  res.json("you smacked the delete route!");
+});
+
+
+router.put('/test', (req, res) => {
+  console.log("you smacked the put route!")
+  res.json("you smacked the put route!");
+});
 
 module.exports = router;
