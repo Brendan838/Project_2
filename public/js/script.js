@@ -56,7 +56,7 @@ async function getSavedSnippet() {
     headers: {
       'Content-Type': 'application/json',
     },
-  }).then((snippet)=>{
+  }).then((snippet)=> {
   snippet.title = titleField.textContent
   snippet.saved_Code = snippetField.textContent
   })

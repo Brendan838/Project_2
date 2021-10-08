@@ -191,6 +191,20 @@ height: 50px;
 
 }
 
+#deleteBtn {
+ float: right;
+  width: 100px;
+  height: 50px;
+  margin-right: 4px;
+
+}
+
+#updateBtn {
+ float: right;
+  width: 70px;
+  height: 50px;
+}
+
 
 .saveButton:hover {
     background-color: rgb(0, 32, 0);
