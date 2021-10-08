@@ -1,0 +1,24 @@
+<div id = "div1">
+
+    <div id = "div2">
+
+    <h1 id="snipHead">Saved Snippets</h1>
+        <button class="saveButton folders"> New Snippet</button>
+         {{#each postData as |post|}}
+        <button class="saveButton folders"> <a href = "/test/{{post.id}}">{{post.title}}</a></button>
+          {{/each}}
+    </div>
+
+    <div id = "div3">
+    <h1 id = "codeEnterHead" >Enter Code Here</h1>
+
+    <section class= "flex-Column">
+	<textarea class="newCode" rows="1" columns="50" id= "snippetTitle">{{populateText.title}}</textarea>
+    <textarea class="newCode" rows="9" columns="50" id="snippetBody"> {{populateText.saved_code}}</textarea>
+    </section>
+
+    <button class="saveButton" id="saveBtn"> Save </button>
+
+    </div>
+
+</div>

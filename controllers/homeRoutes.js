@@ -73,4 +73,43 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// this is where are testing get and post
+
+
+const postData = [
+  {
+    title: 'Middleware',
+    saved_code: "app.use(express.json()); app.use(express.urlencoded({ extended: true }));",
+    id: 0
+  },
+  {
+    title: 'SequelizeSync',
+    saved_code: 'sequelize.sync({ force: false }).then(() => {app.listen(PORT, () => console.log("Now listening"));});',
+    id: 1
+  },
+  
+];
+
+
+
+router.get('/test', (req, res) => {
+
+  res.render('snipHome', {postData});
+});
+
+
+router.get('/test/:id', (req, res) => {
+  const ID = req.params.id
+  const populateText = postData[ID]
+  res.render('activeSnip', {postData, populateText});
+});
+
+
+
+router.post('/test', (req, res) => {
+  console.log(req.body)
+  res.json(req.body);
+});
+
+
 module.exports = router;
