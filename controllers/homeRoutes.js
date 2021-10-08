@@ -73,21 +73,29 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// this is where are testing get and post
-
+// Brendan is just testing/messing with test routes below this
 
 const postData = [
   {
     title: 'Middleware',
     saved_code: "app.use(express.json()); app.use(express.urlencoded({ extended: true }));",
-    id: 0
+    user_id: 1
   },
   {
     title: 'SequelizeSync',
     saved_code: 'sequelize.sync({ force: false }).then(() => {app.listen(PORT, () => console.log("Now listening"));});',
-    id: 1
+    user_id: 0
   },
-  
+   {
+    title: 'Express',
+    saved_code: "testData!!!",
+    user_id: 2
+  },
+  {
+    title: 'node.js',
+    saved_code: 'moreTestData!!',
+    user_id: 3
+  }
 ];
 
 
