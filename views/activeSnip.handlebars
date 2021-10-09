@@ -2,10 +2,10 @@
 
     <div id = "div2">
 
-   <h1 id="snipHead">Saved Snippets</h1>
+  <h1 id="snipHead">Saved Snippets</h1>
         <button class="saveButton folders"> <a href= "http://localhost:3001/test/">New Snippet</a> </button>
          {{#each postData as |post|}}
-        <button class="saveButton folders"> <a href = "http://localhost:3001/test/{{post.user_id}}">{{post.title}}</a></button>
+        <button class="saveButton folders"> <a href = "http://localhost:3001/test/{{post.id}}">{{post.title}}</a></button>
           {{/each}}
     </div>
 
@@ -18,8 +18,8 @@
     <textarea class="newCode" rows="9" columns="50" id="snippetBody"> {{populateText.saved_code}}</textarea>
     </section>
 
-    <button class="saveButton" id="updateBtn"> Save </button>
-    <button class="saveButton" id="deleteBtn"> Delete </button>
+    <button class="saveButton" id="updateBtn"> <a href= "http://localhost:3001/test/">Update</a> </button>
+    <button class="saveButton" id="deleteBtn"> <a href= "http://localhost:3001/test/">Delete</a> </button>
     </div>
 
 </div>
