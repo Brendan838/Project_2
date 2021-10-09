@@ -1,32 +1,46 @@
 
 var deleteButton = document.querySelector("#deleteBtn")
 var updateButton = document.querySelector("#updateBtn")
+var titleField = document.querySelector("#snippetTitle")
+var snippetField = document.querySelector("#snippetBody")
 
 
 
 
-console.log(deleteButton)
 //code for delete button
-deleteButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  console.log("hello testing", event.target)
+deleteButton.addEventListener("click", () => {
+deleteSnippet()
+});
+
+//code for update button
+updateButton.addEventListener("click", () => {
+  const snippet = {
+    title: titleField.value,
+    saved_code: snippetField.value
+  }
+updateSnippet(snippet)
 });
 
 
 
+async function deleteSnippet() {
+  await fetch(window.location.href, {
+    method: 'DELETE'
+  });
+}
 
 
+async function updateSnippet(snippet) {
 
-// async function deleteSnippet() {
+  await fetch(window.location.href, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(snippet),
+  });
 
-//   await fetch('/test/test', {
-//     method: 'DELETE'
-
-
-
-//   });
-// }
-
+}
 
 // function clearFields() {
 //   titleField.value = ""

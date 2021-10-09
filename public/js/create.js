@@ -6,16 +6,16 @@ var snippetField = document.querySelector("#snippetBody")
 
 
 // code for save button
-saveButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  var newSnippet = {
+saveButton.addEventListener("click", () => {
+
+  const snippet = {
     title: titleField.value,
     saved_code: snippetField.value
   }
 
-  console.log(newSnippet)
-  newSnippet(newSnippet)
-  clearFields()
+  console.log(snippet)
+  newSnippet(snippet)
+ 
 });
 
 //code for delete button
@@ -36,49 +36,29 @@ saveButton.addEventListener("click", (event) => {
 
 //if text exists in the box, 
 
+
+//Save New Snippet
 async function newSnippet(snippet) {
 
-  await fetch('/test', {
+  await fetch(window.location.href, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(snippet),
+    body: JSON.stringify(snippet)
   });
-
+location.reload();
 }
 
 
 
 
-// async function getSavedSnippet() {
-
-//   await fetch('/test', {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   }).then((snippet)=> {
-//   snippet.title = titleField.textContent
-//   snippet.saved_Code = snippetField.textContent
-
-//   })
-
-// }
-
+//Delete Existing Snippet
 async function deleteSnippet() {
 
-  await fetch('/test/test', {
+  await fetch(window.location.href, {
     method: 'DELETE'
-
-
-
   });
 }
 
 
-function clearFields() {
-  titleField.value = ""
-  snippetFeild.value = ""
-
-}

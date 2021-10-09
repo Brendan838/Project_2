@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../models');
+const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -43,24 +43,24 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
-  try {
-    const postData = await Post.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id
-      },
-    });
-    if (!postData) {
-      res.status(404).json({ message: 'No project found with this id!' });
-      return;
-    }
+// router.delete('/:id', async (req, res) => {
+//   try {
+//     const postData = await Post.destroy({
+//       where: {
+//         id: req.params.id,
+//         user_id: req.session.user_id
+//       },
+//     });
+//     if (!postData) {
+//       res.status(404).json({ message: 'No project found with this id!' });
+//       return;
+//     }
 
-    res.status(200).json(postData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.status(200).json(postData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
@@ -74,55 +74,101 @@ router.get('/login', (req, res) => {
 
 // Brendan is just testing/messing with test routes below this
 
-// const postData = [
-//   {
-//     title: 'Middleware',
-//     saved_code: "app.use(express.json()); app.use(express.urlencoded({ extended: true }));",
-//     user_id: 1
-//   },
-//   {
-//     title: 'SequelizeSync',
-//     saved_code: 'sequelize.sync({ force: false }).then(() => {app.listen(PORT, () => console.log("Now listening"));});',
-//     user_id: 0
-//   },
-//    {
-//     title: 'Express',
-//     saved_code: "testData!!!",
-//     user_id: 2
-//   },
-//   {
-//     title: 'node.js',
-//     saved_code: 'moreTestData!!',
-//     user_id: 3
-//   }
-// ];
+
+//this get route is for the main page, which is also the page to create new snippets
+router.get('/test', async (req, res) => {
+ 
+
+  console.log('user id is visited')
+  try {
+      const getData = await Post.findAll({
+      include: [{model: User}],
+        where: {
+          user_id: 1
+        }
+      });
+
+      const postData = await getData.map((post) =>
+        post.get({ plain: true})
+      );
+
+     // console.log("This is the data from the database" ,postData)
+      res.render('userMain', { postData
+        //loggedIn: req.session.logged_in,
+});
+  } 
+  catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 
 
-
-router.get('/test', (req, res) => {
-
-  res.render('snipHome', {postData});
 });
 
+// this get route renders a page similar to userMain, but updates the text areas and is pointing to a url/postID 
+router.get('/test/:id', async (req, res) => {
+  const postId = req.params.id
+  console.log("This is the postID", postId)
+  const getData = await Post.findAll({
+      include: [{model: User}],
+        where: {
+          user_id: 1
+        }
+  });
 
-router.get('/:username/:id', (req, res) => {
-  const ID = req.params.id
-  const populateText = postData[ID]
+  const postData = await getData.map((post) =>
+         post.get({ plain: true})
+       );
+
+  const populateText = postData.find((element)=>{
+  if (element.id == postId){
+  return element
+  }
+  });
+
+  console.log(populateText)
+
   res.render('activeSnip', {postData, populateText});
 });
 
+//this route posts a new snippet
+router.post('/test', async (req, res) => {
+res.json(req.body)
+console.log(req.body)
 
+await Post.create({
+      title: req.body.title,
+      saved_code: req.body.saved_code,
+      //user_id: req.session.user_id
+      user_id: 1
 
-
-router.delete('/test/test', (req, res) => {
-  console.log("you smacked the delete route!")
-  res.json("you smacked the delete route!");
+ });
 });
 
+// this route deletes a snippet
+router.delete('/test/:id', async (req, res) => {
+  console.log("you smacked the delete route!")
+  res.json("you smacked the delete route!");
+  Post.destroy({
+    where: {
+    id: req.params.id
+    }
+});
+});
 
-router.put('/test', (req, res) => {
-  console.log("you smacked the put route!")
-  res.json("you smacked the put route!");
+//this route updates a snippet
+router.put('/test/:id', async (req, res) => {
+  res.json(req.body)
+console.log(req.body)
+console.log("you smacked the put route bruh!")
+
+await Post.update(
+req.body, {
+where: {
+      
+      id: req.params.id
+}
+ });
 });
 
 module.exports = router;
