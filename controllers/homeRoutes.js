@@ -64,6 +64,7 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
@@ -75,8 +76,9 @@ router.get('/login', (req, res) => {
 
 router.get('/about', (req, res) => {
   res.render('about');
-})
+});
 
+//render the about page
 router.get('/test', (req, res) => {
 
   res.render('snipHome', {postData});
