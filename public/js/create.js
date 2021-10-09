@@ -21,17 +21,17 @@ saveButton.addEventListener("click", (event) => {
 //code for delete button
 
 
-// var folders = document.getElementsByClassName("folders");
+var folders = document.getElementsByClassName("folders");
 
 
-// for (let i = 0; i < folders.length; i++) {
-// 	folders[i].addEventListener('click', function(){
+for (let i = 0; i < folders.length; i++) {
+	folders[i].addEventListener('click', function(){
 
-// 	console.log("This worked")
-// 	folders[i].textContent
-// 	})
+	console.log("This worked")
+	folders[i].textContent
+	})
 
-// }
+}
 
 
 //if text exists in the box, 
@@ -51,24 +51,24 @@ async function newSnippet(snippet) {
 
 
 
-// async function getSavedSnippet() {
+async function getSavedSnippet() {
 
-//   await fetch('/test', {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   }).then((snippet)=> {
-//   snippet.title = titleField.textContent
-//   snippet.saved_Code = snippetField.textContent
+  await fetch('/posts/:id', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then((snippet)=> {
+  snippet.title = titleField.textContent
+  snippet.saved_Code = snippetField.textContent
+  console.log(snippet)
+  })
 
-//   })
-
-// }
+}
 
 async function deleteSnippet() {
 
-  await fetch('/test/test', {
+  await fetch('/destroy/:id', {
     method: 'DELETE'
 
 

@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/posts/:id', async (req, res) => {
   try {
     const dbPost = await Post.findAll({
       where: {
@@ -56,15 +56,14 @@ router.get('/:id', async (req, res) => {
     const post = dbPost.map((post) =>
       post.get({ plain: true})
     );
-    const populateText = post.id
-    res.render('activeSnip', {post, populateText});
+    res.render('activeSnip', {post});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/destroy/:id', async (req, res) => {
   try {
     const postData = await Post.destroy({
       where: {

@@ -4,8 +4,8 @@
 
    <h1 id="snipHead">Saved Snippets</h1>
         <button class="saveButton folders"> <a href= "http://localhost:3001/">New Snippet</a> </button>
-         {{#each postData as |post|}}
-        <button class="saveButton folders"> <a href = "http://localhost:3001/{{post.id}}">{{post.title}}</a></button>
+         {{#each post as |post|}}
+        <button class="saveButton folders"> <a href = "http://localhost:3001/posts/{{post.id}}">{{post.title}}</a></button>
           {{/each}}
     </div>
 
@@ -14,8 +14,8 @@
     <h1 id = "codeEnterHead" >Enter Code Here</h1>
 
     <section class= "flex-Column">
-	<textarea class="newCode" rows="1" columns="50" id= "snippetTitle">{{populateText.title}}</textarea>
-    <textarea class="newCode" rows="9" columns="50" id="snippetBody"> {{populateText.saved_code}}</textarea>
+	<textarea class="newCode" rows="1" columns="50" id= "snippetTitle">{{post.title}}</textarea>
+    <textarea class="newCode" rows="9" columns="50" id="snippetBody"> {{post.saved_code}}</textarea>
     </section>
 
     <button class="saveButton" id="updateBtn"> Save </button>
@@ -23,5 +23,5 @@
     </div>
 
 </div>
-
+<script type="text/javascript" src="/js/create.js"></script>
 <script type="text/javascript" src="/js/edit.js"></script>
