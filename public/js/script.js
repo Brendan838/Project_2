@@ -52,7 +52,7 @@ async function saveSnippet(snippet) {
   
 async function getSavedSnippet() {
 
-  await fetch('/', {
+  await fetch('/:id', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

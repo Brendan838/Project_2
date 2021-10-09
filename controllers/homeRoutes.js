@@ -43,6 +43,27 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const dbPost = await Post.findAll({
+      where: {
+        user_id: req.session.user_id,
+        id: req.params.id
+      },
+    }
+    );
+    console.log('post of user with id', dbPost) 
+    const post = dbPost.map((post) =>
+      post.get({ plain: true})
+    );
+    const populateText = post.id
+    res.render('activeSnip', {post, populateText});
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 router.delete('/:id', async (req, res) => {
   try {
     const postData = await Post.destroy({
