@@ -3,29 +3,26 @@ const { Post } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-// router.get('/', withAuth, async (req, res) => {
-//   try {
-//     res.render('homepage', {
-//       logged_in: req.session.loggedIn,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
 
 //render all posts
 router.get('/', withAuth, async (req, res) => {
+  console.log('user id is visited')
   try {
-    const dbPost = await Post.findAll();
-
+    const dbPost = await Post.findAll({
+      where: {
+        user_id: req.session.user_id
+      }
+    }
+    );
+    console.log('post of user with id', dbPost) 
     const post = dbPost.map((post) =>
-      post.get({ plain: true })
+      post.get({ plain: true})
     );
 
     res.render('homepage', {
       post,
       loggedIn: req.session.logged_in,
+
     });
   } catch (err) {
     console.log(err);
@@ -108,7 +105,7 @@ router.get('/test', (req, res) => {
 });
 
 
-router.get('/test/:id', (req, res) => {
+router.get('/:username/:id', (req, res) => {
   const ID = req.params.id
   const populateText = postData[ID]
   res.render('activeSnip', {postData, populateText});
@@ -116,12 +113,6 @@ router.get('/test/:id', (req, res) => {
 
 
 
-router.post('/test', (req, res) => {
-  console.log(req.body)
-
-Post.create(req.body)
-  res.json(req.body);
-});
 
 router.delete('/test/test', (req, res) => {
   console.log("you smacked the delete route!")
