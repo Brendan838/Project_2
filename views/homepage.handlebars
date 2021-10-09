@@ -1,61 +1,25 @@
-{{log post}}
-<!DOCTYPE html>
-<html lang="en">
+<div id="div1">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StoYoCodes</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+    <div id="div2">
 
-<body>
-    <header class="title">
-        StoYoCodes
-    </header>
-    <navbar>
-        <ul>
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
-    </navbar>
-
-    <button onclick="document.getElementById('id01').style.display='block'">Login</button>
-
-    <!-- The Modal -->
-    <div id="id01" class="modal">
-        <span onclick="document.getElementById('id01').style.display='none'" class="close"
-            title="Close Modal">&times;</span>
-
-        <!-- Modal Content -->
-        <form class="modal-content animate" action="/action_page.php"></form>
-        <div class="imgcontainer">
-            <img src="img_avatar2.png" alt="Avatar" class="avatar">
-        </div>
-
-        <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
-
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-
-            <button type="submit">Login</button>
-            <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-            </label>
-        </div>
-
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                class="cancelbtn">Cancel</button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-        </form>
+        <h1 id="snipHead">Saved Snippets</h1>
+        <button class="saveButton folders"> <a href="http://localhost:3001/{{username}}/">New Snippet</a> </button>
+        {{#each postData as |post|}}
+        <button class="saveButton folders"> <a
+                href="http://localhost:3001/{{username}}/{{post.user_id}}">{{post.title}}</a></button>
+        {{/each}}
     </div>
-    <script type="text/javascript" src="/script.js"></script>
-</body>
 
-</html>
+    <div id="div3">
+        <h1 id="codeEnterHead">Enter Code Here</h1>
+
+        <section class="flex-Column">
+            <textarea class="newCode" rows="1" columns="50" id="snippetTitle"> </textarea>
+            <textarea class="newCode" rows="9" columns="50" id="snippetBody"> </textarea>
+        </section>
+
+        <button class="saveButton" id="saveBtn"> Save </button>
+
+    </div>
+
+</div>
