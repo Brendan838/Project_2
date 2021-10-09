@@ -1,10 +1,11 @@
+
 <div id = "div1">
 
     <div id = "div2">
 
    <h1 id="snipHead">Saved Snippets</h1>
         <button class="saveButton folders"> <a href= "http://localhost:3001/{{username}}/">New Snippet</a> </button>
-         {{#each postData as |post|}}
+         {{#each post as |post|}}
         <button class="saveButton folders"> <a href = "http://localhost:3001/{{username}}/{{post.user_id}}">{{post.title}}</a></button>
           {{/each}}
     </div>
@@ -13,7 +14,7 @@
     <h1 id = "codeEnterHead" >Enter Code Here</h1>
 
     <section class= "flex-Column">
-	<textarea class="newCode" rows="1" columns="50" id= "snippetTitle"> </textarea>
+	  <textarea class="newCode" rows="1" columns="50" id= "snippetTitle"> </textarea>
     <textarea class="newCode" rows="9" columns="50" id="snippetBody"> </textarea>
     </section>
 
