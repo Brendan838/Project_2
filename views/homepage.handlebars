@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
+<<<<<<< Updated upstream
 <body>
     <header class="title">
         StoYoCodes
@@ -34,6 +35,15 @@
         <div class="imgcontainer">
             <img src="img_avatar2.png" alt="Avatar" class="avatar">
         </div>
+=======
+        <h1 id="snipHead">Saved Snippets</h1>
+        <button class="saveButton folders"> <a href="http://localhost:3001/{{username}}/">New Snippet</a> </button>
+        {{#each post as |post|}}
+        <button class="saveButton folders"> <a
+                href="http://localhost:3001/{{username}}/{{post.user_id}}">{{post.title}}</a></button>
+        {{/each}}
+    </div>
+>>>>>>> Stashed changes
 
         <div class="container">
             <label for="uname"><b>Username</b></label>

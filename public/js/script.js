@@ -40,7 +40,7 @@ for (let i = 0; i < folders.length; i++) {
 
 async function saveSnippet(snippet) {
 
-  await fetch('/test', {
+  await fetch('/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ async function saveSnippet(snippet) {
   
 async function getSavedSnippet() {
 
-  await fetch('/test', {
+  await fetch('/', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
