@@ -226,3 +226,26 @@ height: 100%;
 width: 100%;
 height: 100%;
 }
+
+.desc {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+.aboutList {
+  text-align: left;
+}
+.list1 {
+  text-align: left;
+  font-size: 20px;
+}
+.list2 {
+  text-align: left;
+  margin-top: 40px;
+  font-size: 20px;
+}
+.list3 {
+  text-align: left;
+  margin-top: 40px;
+  font-size: 20px;
+}
