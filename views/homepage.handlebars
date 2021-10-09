@@ -4,7 +4,7 @@
 
    <h1 id="snipHead">Saved Snippets</h1>
         <button class="saveButton folders"> <a href= "http://localhost:3001/{{username}}/">New Snippet</a> </button>
-         {{#each postData as |post|}}
+         {{#each post as |post|}}
         <button class="saveButton folders"> <a href = "http://localhost:3001/{{username}}/{{post.user_id}}">{{post.title}}</a></button>
           {{/each}}
     </div>
