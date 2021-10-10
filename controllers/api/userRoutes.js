@@ -1,6 +1,12 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+
+router.get('/login', (req, res) => {
+
+  res.render('login');
+});
+
 router.post('/signup', async (req, res) => {
   console.log('You hit signup route', req.body);
     try {

@@ -4,14 +4,14 @@
     <div id = "div2">
 
    <h1 id="snipHead">Saved Snippets</h1>
-        <button class="saveButton folders"> <a href= "http://localhost:3001/">New Snippet</a> </button>
+        <button class="saveButton folders"> <a href= "http://localhost:3001/snips">New Snippet</a> </button>
          {{#each postData as |post|}}
         <button class="saveButton folders"> <a href = "http://localhost:3001/snippet/{{post.id}}">{{post.title}}</a></button>
           {{/each}}
     </div>
 
     <div id = "div3">
-    <h1 id = "codeEnterHead" >Enter Code Here</h1>
+    <h1 id = "codeEnterHead" >Enter Code Here <button class="saveButton logOuts" id="logout1">Logout</button></h1>
 
     <section class= "flex-Column">
 	  <textarea class="newCode" rows="1" columns="50" id= "snippetTitle"> </textarea>
@@ -19,7 +19,7 @@
     </section>
 
     <button class="saveButton" id="saveBtn"> Save </button>
-
+    
     </div>
 
 </div>
