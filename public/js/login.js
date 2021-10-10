@@ -46,5 +46,5 @@ document
   .addEventListener('click', loginFormHandler);
 
 document
-  .querySelector('.registerbtn')
+  .querySelector('#registerbtn')
   .addEventListener('click', signupFormHandler);
