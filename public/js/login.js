@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
     });
     console.log(response)
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/snips');
     } else {
       alert('Failed to log in.');
     }
@@ -34,7 +34,8 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      alert('You are signed up! Please log in :)')
+ 
     } else {
       alert('Failed to sign up.');
     }

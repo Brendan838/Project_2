@@ -4,13 +4,16 @@ const withAuth = require('../utils/auth');
 
 
 //if user is not logged in, this redirects them to the login screen
-router.get('/login', (req, res) => {
+
+
+router.get('/', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('/snips');
     return;
   }
   res.render('login');
 });
+
 
 
 //about page
@@ -19,7 +22,7 @@ router.get('/about', (req, res) => {
   res.render('about');
 });
 // main user page
-router.get('/', withAuth, async (req, res) => {
+router.get('/snips', withAuth, async (req, res) => {
 
   try {
       const getData = await Post.findAll({
@@ -29,14 +32,14 @@ router.get('/', withAuth, async (req, res) => {
         }
       });
 
-      if (getData){
+    
        const postData = await getData.map((post) =>
-        post.get({ plain: true})
-      );
+        post.get({ plain: true}));
+     
       res.render('userMain', {postData});
-      }  
+      
  
-      res.render('userMain')
+  
   
     } 
     catch (err) {
@@ -74,7 +77,7 @@ router.get('/snippet/:id', withAuth, async (req, res) => {
 
 
 //Button for posting brand new snippet
-router.post('/', withAuth, async (req, res) => {
+router.post('/snips', withAuth, async (req, res) => {
 res.json(req.body)
 console.log(req.body)
 
