@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
-
+//Jaws DB needs to be USED before initiating
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now Listening'));
 });
