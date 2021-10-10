@@ -4,9 +4,9 @@
     <div id = "div2">
 
    <h1 id="snipHead">Saved Snippets</h1>
-        <button class="saveButton folders"> <a href= "http://localhost:3001/test/">New Snippet</a> </button>
+        <button class="saveButton folders"> <a href= "http://localhost:3001/">New Snippet</a> </button>
          {{#each postData as |post|}}
-        <button class="saveButton folders"> <a href = "http://localhost:3001/test/{{post.id}}">{{post.title}}</a></button>
+        <button class="saveButton folders"> <a href = "http://localhost:3001/snippet/{{post.id}}">{{post.title}}</a></button>
           {{/each}}
     </div>
 

@@ -15,7 +15,6 @@ saveButton.addEventListener("click", () => {
 
   console.log(snippet)
   newSnippet(snippet)
- 
 });
 
 //code for delete button
