@@ -27,6 +27,7 @@ async function deleteSnippet() {
   await fetch(window.location.href, {
     method: 'DELETE'
   });
+document.location.replace('/snips');
 }
 
 
@@ -39,7 +40,7 @@ async function updateSnippet(snippet) {
     },
     body: JSON.stringify(snippet),
   });
-
+   document.location.replace('/snips');
 }
 
 // function clearFields() {
