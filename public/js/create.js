@@ -1,8 +1,8 @@
 var saveButton = document.querySelector("#saveBtn")
 var titleField = document.querySelector("#snippetTitle")
 var snippetField = document.querySelector("#snippetBody")
-
-
+var copyBtn = document.querySelector("#copyBtn")
+var pasteBtn = document.querySelector("#pasteBtn")
 
 
 // code for save button
@@ -76,3 +76,20 @@ const logout = async () => {
   
   document.querySelector('#logout1').addEventListener('click', logout);
   
+
+   copyBtn.addEventListener('click', () => {
+    snippetField.select();
+    document.execCommand('copy')
+    
+});
+
+pasteBtn.addEventListener('click', () => {
+    snippetField.focus();
+    document.execCommand('paste')
+    navigator.clipboard.readText()
+    .then((text)=>{
+        snippetField.value = snippetField.value + text;
+    });
+
+});
+

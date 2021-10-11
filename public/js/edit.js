@@ -3,7 +3,8 @@ var deleteButton = document.querySelector("#deleteBtn")
 var updateButton = document.querySelector("#updateBtn")
 var titleField = document.querySelector("#snippetTitle")
 var snippetField = document.querySelector("#snippetBody")
-
+var copyBtn = document.querySelector("#copyBtn")
+var pasteBtn = document.querySelector("#pasteBtn")
 
 
 
@@ -64,3 +65,18 @@ const logout = async () => {
   
   document.querySelector('#logout2').addEventListener('click', logout);
   
+  copyBtn.addEventListener('click', () => {
+    snippetField.select();
+    document.execCommand('copy')
+    
+});
+
+pasteBtn.addEventListener('click', () => {
+    snippetField.focus();
+    document.execCommand('paste')
+    navigator.clipboard.readText()
+    .then((text)=>{
+        snippetField.value = snippetField.value + text;
+    });
+
+});
