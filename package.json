@@ -4,6 +4,7 @@
   "description": "> Deployed site [_here_](https://brendan838.github.io/groupProject_teamSoFetch/). <!-- If you have the project hosted somewhere, include the link here. -->",
   "main": "server.js",
   "dependencies": {
+    "aws-sdk": "^2.1004.0",
     "bcrypt": "^5.0.0",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",
