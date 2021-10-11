@@ -21,6 +21,11 @@ router.get('/about', (req, res) => {
   
   res.render('about');
 });
+
+router.get('/images', (req, res) => {
+  
+  res.render('images');
+});
 // main user page
 router.get('/snips', withAuth, async (req, res) => {
 
