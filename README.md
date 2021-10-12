@@ -1,6 +1,6 @@
 # groupProject_team Five Guys Coding Fries
 
-> Deployed site [_here_](). <!-- If you have the project hosted somewhere, include the link here. -->
+>  [Deployed site!](https://stoyocode.herokuapp.com/) <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 
@@ -26,9 +26,9 @@ This application uses node.js, as well as npm libraries including express, mysql
 
 ## Screenshots
 
-![Example screenshot]()
+![](./public/assets/stoyo1.png)
 
-
+![](./public/assets/stoyo2.png)
 ## Acknowledgements
 
 - Many thanks to Trilogy Education.
