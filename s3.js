@@ -7,7 +7,7 @@ const randomBytes = promisify(crypto.randomBytes)
 
 dotenv.config()
 
-const region = "US East (Ohio) us-east-2"
+const region = "us-east-2"
 const bucketName = "stoyo"
 const accessKeyId = process.env.AWS_ACCESS_KEY_ID
 const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY
@@ -33,4 +33,4 @@ async function generateUploadURL() {
   return uploadURL
 }
 
-module.exports = router;
+module.exports = generateUploadURL;
